@@ -1,3 +1,8 @@
+/* Enable Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Base Reset & Typography */
 * {
     margin: 0;
@@ -9,12 +14,14 @@
 body {
     background-color: #000;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    width: 100%;
 }
 
-/* Base Layout Wrapper */
+/* ==========================================
+   SECTION 1: HERO SECTION STYLES
+   ========================================== */
 .hero-container {
     width: 100%;
     max-width: 1200px;
@@ -28,7 +35,6 @@ body {
     padding: 30px 50px;
 }
 
-/* Header Styles */
 header {
     display: flex;
     justify-content: space-between;
@@ -37,7 +43,7 @@ header {
 }
 
 .logo {
-    font-family: 'Arial Black', Impact, sans-serif; /* Kept blocky/italic for the brand identifier */
+    font-family: 'Arial Black', Impact, sans-serif;
     font-size: 2.2rem;
     font-style: italic;
     font-weight: 900;
@@ -53,14 +59,15 @@ nav a {
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
 }
 
 nav a:hover {
     color: #ff6392;
+    transform: translateY(-2px);
 }
 
-/* Main Area Elements */
 .content {
     flex-grow: 1;
     position: relative;
@@ -70,12 +77,11 @@ nav a:hover {
     align-items: center;
 }
 
-/* Giant Serif Title Background */
 .bg-title {
     position: absolute;
     top: 5%;
     font-size: 13rem;
-    font-weight: 400; /* Distinct thin-serif appearance from your second image */
+    font-weight: 400;
     color: #1b8a5a;
     letter-spacing: 20px;
     z-index: 1;
@@ -83,16 +89,15 @@ nav a:hover {
     opacity: 0.95;
 }
 
-/* Central Group Cutout */
 .hero-image {
     position: absolute;
     bottom: -10px;
     max-height: 85%;
     object-fit: contain;
     z-index: 2;
+    pointer-events: none;
 }
 
-/* Bottom Button Container */
 .button-group {
     display: flex;
     gap: 20px;
@@ -129,7 +134,6 @@ nav a:hover {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
 }
 
-/* Footer Section */
 footer {
     display: flex;
     justify-content: flex-end;
@@ -141,9 +145,277 @@ footer {
     color: #333;
     font-size: 1.5rem;
     margin-left: 20px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
 }
 
 .social-icons a:hover {
+    color: #ff6392;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   SECTION 3: MEMBERS SECTION STYLES
+   ========================================== */
+.members-section {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 675px;
+    background-color: #129A64;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 40px;
+}
+
+.members-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.8rem;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+/* 4 columns x 2 rows Grid */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    width: 100%;
+}
+
+/* Individual Member Box (Links to individual page) */
+.member-card {
+    position: relative;
+    height: 230px;
+    background: linear-gradient(180deg, #D37A98 0%, #767B80 100%);
+    border-radius: 2px;
+    overflow: hidden;
+    text-decoration: none;
     color: #000;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+    filter: brightness(1.05);
+}
+
+.member-info {
+    z-index: 2;
+    max-width: 55%;
+}
+
+.member-name {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+.member-role {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.25;
+    color: #111111;
+}
+
+/* Member Cutout Image */
+.member-img {
+    position: absolute;
+    right: -10px;
+    bottom: 0;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover .member-img {
+    transform: scale(1.04);
+}
+
+/* Instagram Wrapper Object (prevents nested <a> tag conflict) */
+.ig-object {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 5;
+    width: 28px;
+    height: 28px;
+}
+
+.member-ig-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.member-ig-icon {
+    font-size: 1.6rem;
+    color: #000000;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.member-ig-link:hover .member-ig-icon {
+    color: #FFFFFF;
+    transform: scale(1.15);
+}
+
+/* ==========================================
+   MEMBER PROFILE PAGE STYLES (hongjoong.html)
+   ========================================== */
+.profile-page-body {
+    background-color: #7b6d73; /* Muted taupe background from frame 4 */
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #82737a;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.profile-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.nav-pill {
+    padding: 6px 24px;
+    background-color: #222222;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 18px;
+    transition: background 0.2s ease;
+}
+
+.nav-pill.active-pill {
+    background-color: #ff6392; /* Pink highlighted button */
+}
+
+.profile-content {
+    font-family: 'Abhaya Libre', serif;
+    line-height: 1.4;
+    font-size: 0.95rem;
+}
+
+.profile-row {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.profile-row.reverse {
+    flex-direction: row;
+}
+
+.inline-img-row {
+    align-items: flex-start;
+}
+
+.profile-text {
+    flex: 1;
+}
+
+.bio-intro {
+    font-size: 1.05rem;
+}
+
+.profile-img-wrap {
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.profile-img-wrap.small-left {
+    width: 150px;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.bio-section {
+    margin-top: 25px;
+}
+
+.bio-section p {
+    margin-bottom: 14px;
+    text-align: justify;
+}
+
+.section-title.title-green {
+    color: #129A64;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.sub-title {
+    font-family: 'Impact', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    margin: 20px 0 10px 0;
+    color: #000000;
+}
+
+.album-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.album-gallery img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border: 1px solid #333;
+}
+
+.profile-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    padding-top: 15px;
+}
+
+.back-link {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #ff6392;
 }
