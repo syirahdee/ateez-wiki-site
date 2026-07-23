@@ -419,3 +419,89 @@ footer {
 .back-link:hover {
     color: #ff6392;
 }
+
+/* Helper Styles for Seonghwa Frame */
+.text-center {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.underline {
+    border-bottom: 1px solid #129A64;
+    padding-bottom: 4px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
+
+.acting-images-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.acting-images-row img {
+    width: 48%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.reverse-layout {
+    flex-direction: row;
+}
+
+.tall-img {
+    width: 260px;
+    flex-shrink: 0;
+}
+
+/* Embedded Video & Placeholder Helpers for Yeosang Frame */
+.video-embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border: 1px solid #333;
+}
+
+.video-embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-placeholder-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.full-width-inside {
+    width: 100%;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
